@@ -1,0 +1,237 @@
+/* @mbshackford | MIT Licensed */
+
+*,
+*::before,
+*::after {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+body {
+    font-family:'Sono', sans-serif;
+    font-size: 16px;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+h1 {
+    /* font-family: 'Kallem'; */
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 1.5px;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    text-transform: uppercase;
+    font-weight: normal;
+    font-style: normal;
+    letter-spacing: 1.5px;
+}
+
+a {
+    text-decoration: none;
+}
+a:hover {
+    border-bottom: transparent;
+    cursor: pointer;
+}
+ol,
+ul,
+li {
+    list-style: none;
+}
+
+/* Header & Intro */
+
+header {
+display:flex;
+justify-content: center;
+text-align: center;
+}
+.container{
+    line-height:2em;
+    font-variant: small-caps;
+}
+
+
+/* Magic 8 Ball */
+
+ .makeItShake{
+    display:flex;
+    justify-content: center;
+    position:relative;
+    width:100vw;
+    margin: 5vmin auto;
+ }
+ .ball {
+    position: relative;
+    border-radius: 50%;
+    width: 90vmin;
+    height: 90vmin;
+    overflow: hidden;
+    background: radial-gradient(circle at 30vmin 30vmin, rgb(48, 52, 57), rgb(0, 4, 12));
+  }
+  /* Answers */
+  .answers {
+    width:90vw;
+    height:90vh;
+}
+  .answer {
+    display:flex;
+    position: absolute;
+    justify-content: center;
+    flex-wrap:wrap;
+    align-items: center;
+    left: 36vmin;
+    top: 34.6vmin;
+    width: 18vmin;
+    height: 20.8vmin;
+    color: white;
+    margin:2px;
+    text-align: center;
+    font-family: 'Sono',sans-serif;
+    font-variant: small-caps;
+    font-size: 2.1vmin;
+    line-height: 2.1vmin;
+    opacity: 0;
+    transition: opacity 1s;
+    animation: floating 6s linear infinite;
+}
+
+/* Triangle */
+.answer::before {
+    content: "";
+    z-index: -1;
+    position: absolute;
+    left: 0;
+    border-left: 8.8vmin solid transparent;
+    border-right: 8.8vmin solid transparent;
+    border-radius: 0.4vmin;
+    width: 0.4vmin;
+    height: 0;
+  }
+  
+  .answer.up::before {
+    top: 0.4vmin;
+    border-bottom: 15.2vmin solid rgba(43, 61, 164, 0.905);
+  }
+  
+  .answer.down::before {
+    bottom: 0.4vmin;
+    border-top: 15.2vmin solid rgba(43, 61, 164, 0.905);
+  }
+  
+  /* Overlay */
+  .answer::after {
+    content: "";
+    z-index: 1;
+    position: absolute;
+    left: -7vmin;
+    top: -5vmin;
+    border-radius: 50%;
+    width: 32vmin;
+    height: 32vmin;
+    background: linear-gradient(to left, rgba(0,0,0,0.9), rgba(0,0,0,0));
+    animation: rotating 6s infinite linear;
+  }
+  
+  /* Input control */
+  input {
+    display: none;
+  }
+  
+  input:checked + .answer {
+    opacity: 1;
+    transition: opacity 2s 1s;
+  }
+  
+  form:active input:checked + .answer {
+    opacity: 0;
+    transition: opacity 1s;
+  }
+  
+  /* Invisible Labels */
+  .labels {
+    position: absolute;
+    top: 0;
+    animation: random 1s steps(20) infinite;
+  }
+  
+  form:active .labels {
+    animation-play-state: paused;
+  }
+  
+  label {
+    display: block;
+    width: 90vmin;
+    height: 90vmin;
+    cursor: pointer;
+  }
+  
+  /* Answer Window */
+  .window {
+    position: absolute;
+    left: 22.5vmin;
+    top: 22.5vmin;
+    width: 45vmin;
+    height: 45vmin;
+    border-radius: 50%;
+    background: radial-gradient(#002, #001 18vmin, #666 18vmin, #000 18.5vmin, #000 22vmin, #666 22vmin, #000 22.5vmin);
+  }
+  
+  /* Numero 8 */
+  .eight {
+    position: absolute;
+    left: 22.5vmin;
+    top: 22.5vmin;
+    width: 45vmin;
+    height: 45vmin;
+    border-radius: 50%;
+    background: #fff;
+    font-size: 27vmin;
+    font-family: 'Sono',sans-serif;
+    text-align: center;
+    line-height: 45vmin;
+    transition: opacity 1s;
+  }
+  
+  form:valid .eight {
+    opacity: 0;
+  }
+
+  /* Floating Labels */
+  @keyframes random {
+    to {
+      transform: translateY(-1710vmin);
+    }
+  } 
+  
+  /* Floating Triangle */
+  @keyframes floating {
+    from {
+      transform: rotateZ(0) rotateY(15deg) translateZ(6.8vmin) rotateZ(0);
+    }
+    to {
+      transform: rotateZ(1turn) rotateY(15deg) translateZ(6.8vmin) rotateZ(-1turn);
+    }
+  } 
+  
+  /* Roatating overlay */
+  @keyframes rotating {
+    to {
+      transform: rotate(1turn);
+    }
+  }
+ 
+/* Footer */
+ footer {
+    display:flex;
+    justify-content: center;
+    position:relative;
+    text-align: center;
+    text-transform: uppercase;
+    margin: 10em 0 5em 0;
+ }
