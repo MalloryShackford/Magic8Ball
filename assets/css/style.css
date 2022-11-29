@@ -250,4 +250,6 @@ text-align: center;
 @media (min-width: 250px){
     body{
      min-width: 250px;
+    }
+}
         
