@@ -245,3 +245,9 @@ text-align: center;
     position:block;
     margin-top:2em;
 }
+
+/* Media Queries*/
+@media (min-width: 250px){
+    body{
+     min-width: 250px;
+        
