@@ -245,11 +245,15 @@ text-align: center;
     position:block;
     margin-top:2em;
 }
-
-/* Media Queries*/
-@media (min-width: 250px){
-    body{
-     min-width: 250px;
-    }
+@media (min-width: 420px){
+  body {
+      font-size: 1em;
+  }
+  .flex-container h1 {
+      font-size: 2em;
+  }
+  .container span img {
+      min-width: 30%;
+      max-width: 40%;
+  }
 }
-        
